@@ -69,14 +69,8 @@
           <hr>
         <div class="row">
           <!-- left column -->
-          <div class="image col-lg-6 order-8 order-lg-2">
-            <div class="text-center">
-              <img src="img/ralogo.png" style="height: 250px " class="avatar img-circle" alt="avatar">
-        
-              
-          
-            </div>
-          </div>
+         <div class="image col-lg-6 order-1 order-lg-2" style="top: 100"><img src="img/ralogo.png" alt="..." class="img-fluid">
+<br><br><br>       </div>
           
           <!-- edit form column -->
           <div class=" text col-lg-6 order-2 order-lg-2 personal-info myFont " style="color: #ffffff">
@@ -88,7 +82,7 @@
            
            <h3 style="color: red ;">Personal <span style="color: #fff">info</span></h3>
             
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" method="get" action="database.php" role="form">
               <div class="form-group ">
                 <label class="col-lg-3 control-label">NAME:</label>
                 <div class="col-lg-5">
@@ -213,7 +207,13 @@
               <div class="form-group">
                 <label class="col-md-3 control-label"></label>
                 <div class="col-md-8">
-                  <input type="button" class="btn btn-primary" value="Save Changes">
+                 <div class="cta">
+          <a class="btn btn-primary pull-left" href=" #database.php" style="background-color: #ff5500;" >
+            Save Changes</a>
+          </button>
+
+          
+      </div>
                   <span></span><span>   </span>
                   <input type="reset" class="btn btn-default" value="Cancel">
                 </div>

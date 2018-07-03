@@ -243,7 +243,7 @@ section header {
   line-height: 40px;
   color: #fff;
   text-align: center;
-  background-color: #5989e5;
+  background-color: #ff5500;
   background-image: -webkit-gradient(linear, left top, right top, from(#5989e5), to(#37cfdc));
   background-image: linear-gradient(to right, #5989e5, #37cfdc);
   position: absolute;
@@ -988,8 +988,8 @@ STYLE SWITCHER FOR DEMO
 
 .btn-primary {
   color: #fff;
-  background-color: #5989e5;
-  border-color: #5989e5;
+  background-color: #ff5500;;
+  border-color: #ff5500;;
 }
 
 .btn-primary:hover {
