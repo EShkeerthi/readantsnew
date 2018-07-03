@@ -1,16 +1,25 @@
-<!DOCTYPE html>
+<!--<?php
+    session_start();
+
+    if(!isset($_SESSION['logged'])){
+        echo "<script>window.top.location='index.php'</script>"
+    }
+    else{
+        if(($_SESSION['logged'])==false){
+            echo "<script>window.top.location='index.php'</script>"
+        }
+    }
+?>-->
+
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>::REDANTS</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
+    <head>
+        <title>
+            REDANTS 
+        </title>
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="css/landy-iconfont.css">
     <!-- Google fonts - Open Sans-->
@@ -21,314 +30,1242 @@
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="css/custom.css">
+  
     <!-- Favicon-->
     <link rel="shortcut icon" href="favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-  </head>
-  <body>
-    <!-- navbar-->
-    <header class="header" >
-      <nav class="navbar navbar-expand-lg fixed-top"style="background-color: red" >
-        <a href="index.html" class="navbar-brand" >  <span class="white redantFont ">RED</span> <span class="black redantFont" style="color: white">ANTS</span></a>
-        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
-        <div id="navbarSupportedContent" class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto align-items-start align-items-lg-center">
-              <li class="nav-item"><a href="home.html" class="nav-link link-scroll">Home</a></li>
-              <li class="nav-item"><a href="profile.html" class="nav-link link-scroll">Profile</a></li>
-              <li class="nav-item"><a href="clubs.html" class="nav-link link-scroll">Clubs</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link link-scroll">About</a></li>
-            <li class="nav-item"><a href="changepwd.html" class="nav-link link-scroll">Change Password</a></li>
-            <li class="nav-item"><a href="feedback.html" class="nav-link link-scroll">Feedback</a></li>
-            <li class="nav-item"><a href="index.html" class="nav-link">Signout</a></li>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+           <!-- Stylesheets -->
+
+  <link rel="stylesheet" href="css/set1.css">
+
+         <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+<style>
+body {
+   
+    background-image: url("images/ralogo.png");
+    background-color: black;
+  background-repeat: no-repeat;
+  background-size: 750px 420px;
+  background-position: left;
+ }
+</style>
+
+    </head>
+    <body>
+  
         
-          </ul>
+            <header class="header" >
+                    <nav class="navbar navbar-expand-lg fixed-top"style="background-color: red" >
+                      <a href="index.html" class="navbar-brand" >  <span class="white redantFont ">RED</span> <span class="black redantFont" style="color: white">ANTS</span></a>
+                      <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
+                      <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto align-items-start align-items-lg-center">
+                         <h3></h3>   <li class="nav-item"><a href="home.html" class="nav-link link-scroll">Home</a></li>
+                            <li class="nav-item"><a href="profile.html" class="nav-link link-scroll">Profile</a></li>
+                            <li class="nav-item"><a href="clubs.html" class="nav-link link-scroll">Clubs</a></li>
+                          <li class="nav-item"><a href="about.html" class="nav-link link-scroll">About</a></li>
+                          <li class="nav-item"><a href="changepwd.html" class="nav-link link-scroll">Change Password</a></li>
+                          <li class="nav-item"><a href="feedback.html" class="nav-link link-scroll">Feedback</a></li>
+                          <li class="nav-item"><a href="index.html" class="nav-link">Signout</a></li>
+                        </h3>
+                        </ul>
+                     
+                      </div>
+                    </nav>
+                  </header> 
        
-        </div>
-      </nav>
-    </header>
-    <!-- Modal-->
-    <div id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 id="exampleModalLabel" class="modal-title">Sign Up Modal</h5>
-            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-          </div>
-          <div class="modal-body">
-            <form id="signupform" action="#">
-              <div class="form-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" name="fullname" placeholder="Full Name" id="fullname">
-              </div>
-              <div class="form-group">
-                <label for="username">User Name</label>
-                <input type="text" name="username" placeholder="User Name" id="username">
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="text" name="email" placeholder="Email Address" id="email">
-              </div>
-              <div class="form-group">
-                <button type="submit" class="submit btn btn-primary btn-shadow btn-gradient">Signup</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <section id="hero" class="hero hero-home bg-gray">
-      <div class="container">
-        <div class="row d-flex">
-          <div class="col-lg-6 text order-2 order-lg-1">
-            <h1>Landy &mdash; Bootstrap&nbsp;4 landing page</h1>
-            <p class="hero-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-            <div class="CTA"><a href="#features" class="btn btn-primary btn-shadow btn-gradient link-scroll">Discover More</a><a href="#" class="btn btn-outline-primary">Sign Up Now</a></div>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2"><img src="img/Macbook.png" alt="..." class="img-fluid"></div>
-        </div>
-      </div>
-    </section>
-    <section id="browser" class="browser">
-      <div class="container">
-        <div class="row d-flex justify-content-center"> 
-          <div class="col-lg-8 text-center">
-            <h2 class="h3 mb-5">How it works</h2>
-            <div class="browser-mockup">
-              <div id="nav-tabContent" class="tab-content">
-                <div id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab" class="tab-pane fade show active"><img src="img/preview-3.png" alt="..." class="img-fluid"></div>
-                <div id="nav-second" role="tabpanel" aria-labelledby="nav-second-tab" class="tab-pane fade"><img src="img/preview-2.png" alt="..." class="img-fluid"></div>
-                <div id="nav-third" role="tabpanel" aria-labelledby="nav-third-tab" class="tab-pane fade"><img src="img/preview-1.png" alt="..." class="img-fluid"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="myTab" role="tablist" class="nav nav-tabs">
-          <div class="row">
-            <div class="col-md-4"><a id="nav-first-tab" data-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-expanded="true" class="nav-item nav-link active"> <span class="number">1</span>Choose any website to turn into an interactive pinboard for feedback</a></div>
-            <div class="col-md-4"><a id="nav-second-tab" data-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" class="nav-item nav-link"> <span class="number">2</span>Choose any website to turn into an interactive pinboard for feedback</a></div>
-            <div class="col-md-4"><a id="nav-third-tab" data-toggle="tab" href="#nav-third" role="tab" aria-controls="nav-third" class="nav-item nav-link"> <span class="number">3</span>Choose any website to turn into an interactive pinboard for feedback</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="about-us" class="about-us bg-gray">
-      <div class="container">
-        <h2>About Us</h2>
+</div>
+
+<div id="main-wrapper">
+
+          
+  <div class="container-fluid">
         <div class="row">
-          <p class="lead col-lg-10">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. or randomised words which don't look even slightly believable. </p>
-        </div><a href="#" class="btn btn-primary btn-shadow btn-gradient">Discover More</a>
+         <div class="image col-lg-6 order-1 order-lg-2" style="top: 100"><img src="img/ralogo.png" alt="..." class="img-fluid">
+<br><br><br><br><br>         </div>
+            <div class="text col-lg-6 order-2 order-lg-2">
+
+
+      
+    
+	
+      <form method="post" action="php/login.php" name="register" style=" background-color: black;">
+        <style type="text/css">
+          .input {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 1em;
+  max-width: 350px;
+  width: calc(100% - 2em);
+  vertical-align: top;
+}
+
+.input__field {
+  position: relative;
+  display: block;
+  float: right;
+  padding: 0.8em 0.8em 0.8em 0;
+  width: 60%;
+  border: none;
+  border-radius: 0;
+  background: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  font-family: 'lato', sans-serif;
+  -webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.input__field:focus {
+  outline: none;
+}
+
+.input__label {
+  display: inline-block;
+  float: right;
+  padding: 0 1em;
+  width: 40%;
+  color: white;
+  font-weight: bold;
+  font-size: 70.25%;
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.input__label-content {
+  position: relative;
+  display: block;
+  padding: 1.6em 0;
+  width: 100%;
+}
+
+.graphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: none;
+}
+
+.icon {
+  color: #ddd;
+  font-size: 150%;
+}
+
+/* Individual styles */
+
+/* Haruki */
+
+.input--haruki {
+  margin: 4em 1em 1em;
+}
+
+.input__field--haruki {
+  padding: 0.4em 0.25em;
+  width: 100%;
+  background: transparent;
+  color: white;
+  font-size: 1.55em;
+}
+
+.input__label--haruki {
+  position: absolute;
+  width: 100%;
+  text-align: left;
+  pointer-events: none;
+}
+
+.input__label-content--haruki {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label--haruki::before,
+.input__label--haruki::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 4px;
+  background: white;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label--haruki::before {
+  top: 0;
+}
+
+.input__label--haruki::after {
+  bottom: 0;
+}
+
+.input__field--haruki:focus + .input__label--haruki .input__label-content--haruki,
+.input--filled .input__label-content--haruki {
+  -webkit-transform: translate3d(0, -90%, 0);
+  transform: translate3d(0, -90%, 0);
+}
+
+.input__field--haruki:focus + .input__label--haruki::before,
+.input--filled .input__label--haruki::before {
+  -webkit-transform: translate3d(0, -0.5em, 0);
+  transform: translate3d(0, -0.5em, 0);
+}
+
+.input__field--haruki:focus + .input__label--haruki::after,
+.input--filled .input__label--haruki::after {
+  -webkit-transform: translate3d(0, 0.5em, 0);
+  transform: translate3d(0, 0.5em, 0);
+}
+
+/* Hoshi */
+.input--hoshi {
+  overflow: hidden;
+  max-width: none;
+  width: 100%;
+  font-family: 'lato', sans-serif;
+}
+
+.input__field--hoshi {
+  margin-top: 1em;
+  padding: 1.5em 0.15em 1.5em 0;
+  width: 100%;
+  background: transparent;
+  color:white;
+}
+
+.input__label--hoshi {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  width: 100%;
+  height: calc(100% - 1em);
+  text-align: left;
+  pointer-events: none;
+  font-family: 'lato', sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: white;
+  letter-spacing: 0.12em;
+}
+
+.input__label-content--hoshi {
+  position: absolute;
+}
+
+.input__label--hoshi::before,
+.input__label--hoshi::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 10px);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.input__label--hoshi::after {
+  margin-top: 1.5px;
+  border-bottom: 2px solid red;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label--hoshi-color-1::after {
+  border-color: hsl(200, 100%, 50%);
+}
+
+.input__label--hoshi-color-2::after {
+  border-color: hsl(160, 100%, 50%);
+}
+
+.input__label--hoshi-color-3::after {
+  border-color: red;
+}
+
+.input__field--hoshi:focus + .input__label--hoshi::after,
+.input--filled .input__label--hoshi::after {
+  -webkit-transform: translate3d(0, -2px, 0);
+  transform: translate3d(0, -2px, 0);
+}
+
+.input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,
+.input--filled .input__label-content--hoshi {
+  -webkit-animation: anim-1 0.3s forwards;
+  animation: anim-1 0.3s forwards;
+}
+
+@-webkit-keyframes anim-1 {
+  50% {
+    opacity: 0;
+    -webkit-transform: translate3d(1em, 0, 0);
+    transform: translate3d(1em, 0, 0);
+  }
+  51% {
+    opacity: 0;
+    -webkit-transform: translate3d(-1em, -40%, 0);
+    transform: translate3d(-1em, -40%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -40%, 0);
+    transform: translate3d(0, -40%, 0);
+  }
+}
+
+@keyframes anim-1 {
+  50% {
+    opacity: 0;
+    -webkit-transform: translate3d(1em, 0, 0);
+    transform: translate3d(1em, 0, 0);
+  }
+  51% {
+    opacity: 0;
+    -webkit-transform: translate3d(-1em, -40%, 0);
+    transform: translate3d(-1em, -40%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -40%, 0);
+    transform: translate3d(0, -40%, 0);
+  }
+}
+
+/* Kuro */
+.input--kuro {
+  max-width: 320px;
+  margin-bottom: 3em;
+}
+
+.input__field--kuro {
+  width: 100%;
+  background: transparent;
+  color: white;
+  opacity: 0;
+  text-align: center;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.input__label--kuro {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  color: #df6589;
+  pointer-events: none;
+}
+
+.input__label--kuro::before,
+.input__label--kuro::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border: 4px solid #747981;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label--kuro::before {
+  border-right: none;
+}
+
+.input__label--kuro::after {
+  left: 50%;
+  border-left: none;
+}
+
+.input__field--kuro:focus,
+.input--filled .input__field--kuro {
+  opacity: 1;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.input__field--kuro:focus + .input__label--kuro::before,
+.input--filled .input__label--kuro::before {
+  -webkit-transform: translate3d(-10%, 0, 0);
+  transform: translate3d(-10%, 0, 0);
+}
+
+.input__field--kuro:focus + .input__label--kuro::after,
+.input--filled .input__label--kuro::after {
+  -webkit-transform: translate3d(10%, 0, 0);
+  transform: translate3d(10%, 0, 0);
+}
+
+.input__field--kuro:focus + .input__label--kuro .input__label-content--kuro,
+.input--filled .input__label-content--kuro {
+  -webkit-animation: anim-2 0.3s forwards;
+  animation: anim-2 0.3s forwards;
+}
+
+@-webkit-keyframes anim-2 {
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 1);
+    transform: scale3d(0.3, 0.3, 1);
+  }
+  51% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 3.7em, 0) scale3d(0.3, 0.3, 1);
+    transform: translate3d(0, 3.7em, 0) scale3d(0.3, 0.3, 1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 3.7em, 0);
+    transform: translate3d(0, 3.7em, 0);
+  }
+}
+
+@keyframes anim-2 {
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 1);
+    transform: scale3d(0.3, 0.3, 1);
+  }
+  51% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 3.7em, 0) scale3d(0.3, 0.3, 1);
+    transform: translate3d(0, 3.7em, 0) scale3d(0.3, 0.3, 1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 3.7em, 0);
+    transform: translate3d(0, 3.7em, 0);
+  }
+}
+
+/* Jiro */
+.input--jiro {
+  margin-top: 2em;
+}
+
+.input__field--jiro {
+  padding: 0.85em 0.5em;
+  width: 100%;
+  background: transparent;
+  color: #DDE2E2;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.input__label--jiro {
+  position: absolute;
+  left: 0;
+  padding: 0 0.85em;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  pointer-events: none;
+}
+
+.input__label-content--jiro {
+  -webkit-transition: -webkit-transform 0.3s 0.3s;
+  transition: transform 0.3s 0.3s;
+}
+
+.input__label--jiro::before,
+.input__label--jiro::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label--jiro::before {
+  border-top: 2px solid #6a7989;
+  -webkit-transform: translate3d(0, 100%, 0) translate3d(0, -2px, 0);
+  transform: translate3d(0, 100%, 0) translate3d(0, -2px, 0);
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.input__label--jiro::after {
+  z-index: -1;
+  background: #6a7989;
+  -webkit-transform: scale3d(1, 0, 1);
+  transform: scale3d(1, 0, 1);
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+}
+
+.input__field--jiro:focus,
+.input--filled .input__field--jiro {
+  opacity: 1;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.input__field--jiro:focus + .input__label--jiro .input__label-content--jiro,
+.input--filled .input__label-content--jiro {
+  -webkit-transform: translate3d(0, -80%, 0);
+  transform: translate3d(0, -80%, 0);
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.input__field--jiro:focus + .input__label--jiro::before,
+.input--filled .input__label--jiro::before {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.input__field--jiro:focus + .input__label--jiro::before,
+.input--filled .input__label--jiro::before {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.input__field--jiro:focus + .input__label--jiro::after,
+.input--filled .input__label--jiro::after {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* Minoru */
+.input__field--minoru {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px 0px 0px 2px transparent;
+  color: #eca29b;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+
+.input__label--minoru {
+  padding: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.input__label--minoru::after {
+  content: '';
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 4em;
+  box-shadow: 0px 0px 0px 0px;
+  color: rgba(199,152,157, 0.6);
+}
+
+.input__field--minoru:focus {
+  box-shadow: 0px 0px 0px 2px #eca29b;
+}
+
+.input__field--minoru:focus + .input__label--minoru {
+  pointer-events: none;
+}
+
+.input__field--minoru:focus + .input__label--minoru::after {
+  -webkit-animation: anim-shadow 0.3s forwards;
+  animation: anim-shadow 0.3s forwards;
+}
+
+@-webkit-keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 100px 50px;
+      opacity: 0;
+  }
+}
+
+@keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 100px 50px;
+      opacity: 0;
+  }
+}
+
+.input__label-content--minoru {
+  padding: 0.75em 0.15em;
+}
+
+/* Yoko */
+.input__field--yoko {
+  z-index: 10;
+  width: 100%;
+  background: transparent;
+  color: #f5f5f5;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.input__label--yoko {
+  position: relative;
+  width: 100%;
+  color: #b04b40;
+  text-align: left;
+}
+
+.input__label--yoko::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 4em;
+  background: #c5564a;
+  -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+  transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label--yoko::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.25em;
+  background: #ad473c;
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label-content--yoko {
+  padding: 0.75em 0;
+}
+
+.input__field--yoko:focus,
+.input--filled .input__field--yoko {
+  opacity: 1;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.input__field--yoko:focus + .input__label--yoko::before,
+.input--filled .input__label--yoko::before {
+  -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
+  transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
+}
+
+.input__field--yoko:focus + .input__label--yoko,
+.input--filled .input__label--yoko {
+  pointer-events: none;
+}
+
+.input__field--yoko:focus + .input__label--yoko::after,
+.input--filled .input__label--yoko::after {
+  -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
+  transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
+}
+
+/* Kyo */
+.input--kyo {
+  z-index: auto;
+}
+
+.input__field--kyo {
+  padding: 0.85em 1.5em;
+  width: 100%;
+  border-radius: 2em;
+  background: #fff;
+  color: #535d92;
+}
+
+.input__label--kyo {
+  z-index: 0;
+  padding: 0 0 0 2em;
+  width: 100%;
+  text-align: left;
+}
+
+.input__label--kyo::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 43, 205, 0.6);
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.input__label-content--kyo {
+  padding: 0.5em 0;
+}
+
+.input__field--kyo:focus,
+.input__field--kyo:focus +  .input__label--kyo .input__label-content--kyo {
+  z-index: 10000;
+}
+
+.input__field--kyo:focus + .input__label--kyo {
+  color: #fff;
+}
+
+.input__field--kyo:focus + .input__label--kyo::after {
+  opacity: 1;
+}
+
+/* Akira */
+.input--akira {
+  margin-top: 2em;
+}
+
+.input__field--akira {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: block;
+  padding: 0 1em;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  text-align: center;
+}
+
+.input__label--akira {
+  padding: 0;
+  width: 100%;
+  background: #696a6e;
+  color: #cc6055;
+  cursor: text;
+}
+
+.input__label--akira::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #2f3238;
+  -webkit-transform: scale3d(0.97, 0.85, 1);
+  transform: scale3d(0.97, 0.85, 1);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label-content--akira {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__field--akira:focus + .input__label--akira::before,
+.input--filled .input__label--akira::before {
+  -webkit-transform: scale3d(0.99, 0.95, 1);
+  transform: scale3d(0.99, 0.95, 1);
+}
+
+.input__field--akira:focus + .input__label--akira,
+.input--filled .input__label--akira {
+  cursor: default;
+  pointer-events: none;
+}
+
+.input__field--akira:focus + .input__label--akira .input__label-content--akira,
+.input--filled .input__label-content--akira {
+  -webkit-transform: translate3d(0, -3.5em, 0);
+  transform: translate3d(0, -3.5em, 0);
+}
+
+/* Ichiro */
+.input--ichiro {
+  margin-top: 2em;
+}
+
+.input__field--ichiro {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 100;
+  display: block;
+  padding: 0 0.55em;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  background: #f0f0f0;
+  color: white;
+  opacity: 0;
+  -webkit-transform: scale3d(1, 0, 1);
+  transform: scale3d(1, 0, 1);
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.input__label--ichiro {
+  width: 100%;
+  text-align: left;
+  cursor: text;
+}
+
+.input__label--ichiro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label-content--ichiro {
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__field--ichiro:focus,
+.input--filled .input__field--ichiro {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}
+
+.input__field--ichiro:focus + .input__label--ichiro,
+.input--filled .input__label--ichiro {
+  cursor: default;
+  pointer-events: none;
+}
+
+.input__field--ichiro:focus + .input__label--ichiro::before,
+.input--filled .input__label--ichiro::before {
+  -webkit-transform: scale3d(1, 1.5, 1);
+  transform: scale3d(1, 1.5, 1);
+}
+
+.input__field--ichiro:focus + .input__label--ichiro .input__label-content--ichiro,
+.input--filled .input__label-content--ichiro {
+  -webkit-transform: translate3d(0, -3.15em, 0) scale3d(0.8, 0.8, 1);
+  transform: translate3d(0, -3.15em, 0) scale3d(0.8, 0.8, 1) translateZ(1px);
+}
+
+/* Juro */
+.input--juro {
+  overflow: hidden;
+}
+
+.input__field--juro {
+  position: absolute;
+  z-index: 100;
+  padding: 2.15em 0.75em 0;
+  width: 100%;
+  background: transparent;
+  color: #1784cd;
+  font-size: 0.85em;
+}
+
+.input__label--juro {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  text-align: left;
+}
+
+.input__label-content--juro {
+  padding: 2em 1em;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform 0.3s, color 0.3s;
+  transition: transform 0.3s, color 0.3s;
+
+  text-rendering: geometricPrecision;
+}
+
+.input__label--juro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0px solid transparent;
+  -webkit-transition: border-width 0.3s, border-color 0.3s;
+  transition: border-width 0.3s, border-color 0.3s;
+}
+
+.input__field--juro:focus + .input__label--juro::before,
+.input--filled .input__label--juro::before {
+  border-width: 8px;
+  border-color: #1784cd;
+  border-top-width: 2em;
+}
+
+.input__field--juro:focus + .input__label--juro .input__label-content--juro,
+.input--filled .input__label--juro .input__label-content--juro {
+  color: #fff;
+  -webkit-transform: translate3d(0, -1.5em, 0) scale3d(0.75, 0.75, 1);
+  transform: translate3d(0, -1.5em, 0) scale3d(0.75, 0.75, 1) translateZ(1px);
+}
+
+/* Hideo */
+.input--hideo {
+  overflow: hidden;
+  background: #fff;
+}
+
+.input__field--hideo {
+  padding: 0.85em 0.85em 0.85em 3em;
+  width: 100%;
+  background: transparent;
+  -webkit-transform: translate3d(1em, 0, 0);
+  transform: translate3d(1em, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label--hideo {
+  position: absolute;
+  padding: 1.25em 0 0;
+  width: 4em;
+  height: 100%;
+}
+
+.input__label--hideo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 4em;
+  height: 100%;
+  background:white;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.icon--hideo {
+  color: #fff;
+  -webkit-transform: scale3d(1, 1, 1); /* Needed for Chrome bug */
+  transform: scale3d(1, 1, 1);
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.input__label-content--hideo {
+  position: absolute;
+  top: 100%;
+}
+
+.input__field--hideo:focus {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.input__field--hideo:focus + .input__label--hideo::before {
+  -webkit-transform: scale3d(0.8, 1, 1);
+  transform: scale3d(0.8, 1, 1);
+}
+
+.input__field--hideo:focus + .input__label--hideo .icon--hideo {
+  -webkit-transform: scale3d(0.6, 0.6, 1);
+  transform: scale3d(0.6, 0.6, 1);
+}
+
+/* Madoka */
+.input--madoka {
+  margin: 1.1em;
+}
+
+.input__field--madoka {
+  width: 100%;
+  background: transparent;
+  color: white;
+}
+
+.input__label--madoka {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-align: left;
+  cursor: text;
+}
+
+.input__label-content--madoka {
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.graphic--madoka {
+  -webkit-transform: scale3d(1, -1, 1);
+  transform: scale3d(1, -1, 1);
+  -webkit-transition: stroke-dashoffset 0.3s;
+  transition: stroke-dashoffset 0.3s;
+  pointer-events: none;
+
+  stroke: #7A7593;
+  stroke-width: 4px;
+  stroke-dasharray: 962;
+  stroke-dashoffset: 558;
+}
+
+.input__field--madoka:focus + .input__label--madoka,
+.input--filled .input__label--madoka {
+  cursor: default;
+  pointer-events: none;
+}
+
+.input__field--madoka:focus + .input__label--madoka .graphic--madoka,
+.input--filled .graphic--madoka {
+  stroke-dashoffset: 0;
+}
+
+.input__field--madoka:focus + .input__label--madoka .input__label-content--madoka,
+.input--filled .input__label-content--madoka {
+  -webkit-transform: scale3d(0.81, 0.81, 1) translate3d(0, 4em, 0);
+  transform: scale3d(0.81, 0.81, 1) translate3d(0, 4em, 0);
+}
+
+/* Kaede */
+.input--kaede {
+  display: block;
+  overflow: hidden;
+  margin: 1em auto 2em;
+  background: #EFEEEE;
+}
+
+.input__field--kaede {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 60%;
+  height: 100%;
+  background: #fff;
+  color: #9DABBA;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.input__label--kaede {
+  z-index: 10;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  cursor: text;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.input__label-content--kaede {
+  padding: 1.5em 0;
+}
+
+.input__field--kaede:focus,
+.input--filled .input__field--kaede {
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+  -webkit-transition-delay: 0.06s;
+  transition-delay: 0.06s;
+}
+
+.input__field--kaede:focus + .input__label--kaede,
+.input--filled .input__label--kaede  {
+  -webkit-transform: translate3d(60%, 0, 0);
+  transform: translate3d(60%, 0, 0);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 34em) {
+  .input__field--kaede:focus + .input__label--kaede,
+  .input--filled .input__label--kaede  {
+    -webkit-transform: translate3d(65%, 0, 0) scale3d(0.65, 0.65, 1);
+    transform: translate3d(65%, 0, 0) scale3d(0.65, 0.65, 1);
+    pointer-events: none;
+  }
+}
+
+/* Isao */
+.input__field--isao {
+  z-index: 10;
+  padding: 0.75em 0.1em 0.25em;
+  width: 100%;
+  background: transparent;
+  color: #afb3b8;
+}
+
+.input__label--isao {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  color: white;
+  text-align: left;
+}
+
+.input__label--isao::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 7px;
+  background: #dadada;
+  -webkit-transform: scale3d(1, 0.4, 1);
+  transform: scale3d(1, 0.4, 1);
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+  transition: transform 0.3s, background-color 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.input__label--isao::after {
+  content: attr(data-content);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.75em 0.15em;
+  color: #da7071;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 50%, 0);
+  transform: translate3d(0, 50%, 0);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.input__field--isao:focus + .input__label--isao::before {
+  background-color: #da7071;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}
+
+.input__field--isao:focus + .input__label--isao {
+  pointer-events: none;
+}
+
+.input__field--isao:focus + .input__label--isao::after {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.input__label-content--isao {
+  padding: 0.75em 0.15em;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.input__field--isao:focus + .input__label--isao .input__label-content--isao {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+}
+
+
+
+
+        </style>
+
+<br><br>
+       
+			<div class="col-sm-7 md-12  right-side right">
+                 <div style="right: px" >    <h3 style="color: white"> <strong style="color: red">LOG</strong>IN</h3></div>
+                        <span class="input input--hoshi">
+      <input class="input__field input__field--hoshi" type="text" name="user_id" />
+          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
+            <span class="input__label-content input__label-content--hoshi">Username *</span>
+          </label>
+      </span>
+      <span class="input input--hoshi">
+      <input class="input__field input__field--hoshi" type="password" name="password" />
+          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
+            <span class="input__label-content input__label-content--hoshi">Password *</span>
+          </label>
+      </span>
+      
+        <div class="cta">
+          <button class="btn btn-primary pull-left" type="submit" style="background-color: #ff5500;" >
+            Login
+          </button>
+          
+</div>
+&nbsp;
+<div class="cta">
+          <a class="btn btn-primary pull-left" href="regform.php" style="background-color: #ff5500;" >
+            Register Now</a>
+          </button>
+
+          
       </div>
-    </section>
-    <section id="features" class="features">
-      <div class="container">
-        <div class="row d-flex align-items-center">
-          <div class="text col-lg-6 order-2 order-lg-1">
-            <div class="icon"><img src="img/medal.svg" alt="..." class="img-fluid"></div>
-            <h4>Your peace of mind is our business</h4>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
-          </div>
-          <div class="image col-lg-6 order-1 order-lg-2"><img src="img/feature-1.png" alt="..." class="img-fluid"></div>
+</div>
+
+    </form>
         </div>
-        <div class="row d-flex align-items-center">
-          <div class="image col-lg-6"><img src="img/feature-2.png" alt="..." class="img-fluid"></div>
-          <div class="text col-lg-6">
-            <div class="icon"><img src="img/hourglass.svg" alt="..." class="img-fluid"></div>
-            <h4>Your peace of mind is our business</h4>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
-          </div>
         </div>
-        <div class="row d-flex align-items-center">
-          <div class="text col-lg-6 order-2 order-lg-1">
-            <div class="icon"><img src="img/cup.svg" alt="..." class="img-fluid"></div>
-            <h4>Your peace of mind is our business</h4>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
-          </div>
-          <div class="image col-lg-6 order-1 order-lg-2"><img src="img/feature-3.png" alt="..." class="img-fluid"></div>
-        </div>
-      </div>
-    </section>
-    <section id="extra-features" class="extra-features bg-primary">
-      <div class="container text-center">
-        <header>
-          <h2>More great features             </h2>
-          <div class="row">
-            <p class="lead col-lg-8 mx-auto">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-          </div>
-        </header>
-        <div class="grid row">
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="icon-diploma"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="icon-folder-1"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="icon-gears"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="icon-management"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="icon-pie-chart"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="icon-quality"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="testimonials" class="testimonials">
-      <div class="container">
-        <header class="text-center no-margin-bottom">   
-          <h2>Happy Clients</h2>
-          <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have</p>
-        </header>
-        <div class="owl-carousel owl-theme testimonials-slider"> 
-          <div class="item-holder">
-            <div class="item">
-              <div class="avatar"><img src="img/avatar-3.jpg" alt="..." class="img-fluid"></div>
-              <div class="text">
-                <div class="quote"><img src="img/quote.svg" alt="..." class="img-fluid"></div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p><strong class="name">Jessica Watson</strong>
-              </div>
-            </div>
-          </div>
-          <div class="item-holder">
-            <div class="item">
-              <div class="avatar"><img src="img/avatar-5.jpg" alt="..." class="img-fluid"></div>
-              <div class="text">
-                <div class="quote"><img src="img/quote.svg" alt="..." class="img-fluid"></div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p><strong class="name">Sarrah Wood</strong>
-              </div>
-            </div>
-          </div>
-          <div class="item-holder">
-            <div class="item">
-              <div class="avatar"><img src="img/avatar-3.jpg" alt="..." class="img-fluid"></div>
-              <div class="text">
-                <div class="quote"><img src="img/quote.svg" alt="..." class="img-fluid"></div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p><strong class="name">Jessica Watson</strong>
-              </div>
-            </div>
-          </div>
-          <div class="item-holder">
-            <div class="item">
-              <div class="avatar"><img src="img/avatar-5.jpg" alt="..." class="img-fluid"></div>
-              <div class="text">
-                <div class="quote"><img src="img/quote.svg" alt="..." class="img-fluid"></div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p><strong class="name">Sarrah Wood</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="newsletter" class="newsletter bg-gray">
-      <div class="container text-center">
-        <h2>Subscribe to Newsletter</h2>
-        <p class="lead">There are many variation passages of lorem ipsum, but the majority have</p>
-        <div class="form-holder">
-          <form id="newsletterForm" action="#">
-            <div class="form-group">
-              <input type="email" name="email" id="email" placeholder="Enter Your Email Address">
-              <button type="submit" class="btn btn-primary btn-gradient submit">Subscribe</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-    <div id="scrollTop">
-      <div class="d-flex align-items-center justify-content-end"><i class="fa fa-long-arrow-up"></i>To Top</div>
-    </div>
-    <footer class="main-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-6"><a href="#" class="brand">Landy</a>
-            <ul class="contact-info list-unstyled">
-              <li><a href="mailto:sales@landy.com">Sales@Landy.com</a></li>
-              <li><a href="tel:123456789">+00 123 456 789</a></li>
-            </ul>
-            <ul class="social-icons list-inline">
-              <li class="list-inline-item"><a href="#" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-              <li class="list-inline-item"><a href="#" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-              <li class="list-inline-item"><a href="#" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-              <li class="list-inline-item"><a href="#" target="_blank" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h5>Selected Cases</h5>
-            <ul class="links list-unstyled">
-              <li> <a href="#">Guess Conntect</a></li>
-              <li> <a href="#">Postly</a></li>
-              <li> <a href="#">Iris Vor Arnim</a></li>
-              <li> <a href="#">Yapital</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h5>Selected Cases</h5>
-            <ul class="links list-unstyled">
-              <li> <a href="#">Guess Conntect</a></li>
-              <li> <a href="#">Postly</a></li>
-              <li> <a href="#">Iris Vor Arnim</a></li>
-              <li> <a href="#">Yapital</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h5>Selected Cases</h5>
-            <ul class="links list-unstyled">
-              <li> <a href="#">Guess Conntect</a></li>
-              <li> <a href="#">Postly</a></li>
-              <li> <a href="#">Iris Vor Arnim</a></li>
-              <li> <a href="#">Yapital</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="copyrights">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-7">
-              <p>&copy; 2017 Landy.com. All rights reserved.                        </p>
-            </div>
-            <div class="col-md-5 text-right">
-              <p>Template By <a href="https://bootstrapious.com/" class="external">Bootstrapious</a>  </p>
-              <!-- Please do not remove the backlink to Bootstrapious unless you support us at http://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :) -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- Javascript files-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"> </script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-    <script src="js/front.js"></script>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
-    <!---->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
-  </body>
+        <!-- Javascript files-->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"> </script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+        <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+        <script src="js/front.js"></script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+        <!---->
+        <script>
+          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='//www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+          ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+        
+    </body>
 </html>

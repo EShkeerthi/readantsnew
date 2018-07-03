@@ -90,14 +90,15 @@ body {
   <div class="container-fluid">
         <div class="row">
          <div class="image col-lg-6 order-1 order-lg-2" style="top: 100"><img src="img/ralogo.png" alt="..." class="img-fluid">
-<br><br><br><br><br>         </div>
+
+         </div>
             <div class="text col-lg-6 order-2 order-lg-2">
 
 
       
     
 	
-      <form method="post" action="php/changepwd.php" name="register" style=" background-color: black;">
+      <form method="post" action="php/feedback.php" name="register" style=" background-color: black;">
         <style type="text/css">
           .input {
   position: relative;
@@ -1214,37 +1215,52 @@ body {
         </style>
 
 <br><br>
+  
        
-			<div class="col-sm-6 md-12  right-side right">
-                 <div style="right: px" >    <h3 style="color: white"> <strong style="color: red">Change</strong> Password </h3></div>
-                    <span class="input input--hoshi">
-                            <input class="input__field input__field--hoshi" type="password" name="password" />
-                          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-                            <span class="input__label-content input__label-content--hoshi">Old Password *</span>
-                          </label>
-                            </span>
-			<span class="input input--hoshi">
-			<input class="input__field input__field--hoshi" type="password" name="password" />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-            <span class="input__label-content input__label-content--hoshi">New Password *</span>
-          </label>
-            </span>
-            <span class="input input--hoshi">
-                    <input class="input__field input__field--hoshi" type="password" name="password" />
-                  <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-                    <span class="input__label-content input__label-content--hoshi">Confirm Password *</span>
-                  </label>
-                    </span>
-			
-        <div class="cta">
-          <button class="btn btn-primary pull-left" type="submit" style="background-color: #ff5500;">
-            Commit
+
+        <div class="col-md-6 right-side right">
+                 <div style="right: px" >    <h3 style="color: white"> <strong style="color: red">FEED</strong>BACK </h3></div>
+                 <span class="input input--hoshi">
+                    <input class="input__field input__field--hoshi" type="text" name="fname"  />
+                    <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
+                      <span class="input__label-content input__label-content--hoshi">Name *</span>
+                    </label>
+                  </span>
+                  <span class="input input--hoshi">
+                    <input class="input__field input__field--hoshi" type="number" name="mobile"/>
+                    <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="email">
+                      <span class="input__label-content input__label-content--hoshi">Mobile *</span>
+                    </label>
+                  </span>
+                  <span class="input input--hoshi">
+                    <input class="input__field input__field--hoshi" type="email" name="email"  />
+                    <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
+                      <span class="input__label-content input__label-content--hoshi">Email*</span>
+                    </label>
+                  </span>
+                  <span class="input input--hoshi">
+                    <input class="input__field input__field--hoshi" type="text" name="about"  />
+                    <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
+                      <span class="input__label-content input__label-content--hoshi">Subject *</span>
+                    </label>
+                  </span>
+                  <span class="input input--hoshi">
+                    <input class="input__field input__field--hoshi" type="text" name="about"  />
+                    <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
+                      <span class="input__label-content input__label-content--hoshi">Message *</span>
+                    </label>
+                  </span>
+      
+        <div class="cta" >
+          <button class="btn btn-primary pull-left" type="submit" style="background-color:#ff5500;">
+            Send Feedback
           </button>
 </div>
 
-</div>
-		</div>
+        
+    </div>
     </form>
+
         </div>
         </div>
         <!-- Javascript files-->
