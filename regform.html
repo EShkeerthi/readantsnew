@@ -103,11 +103,6 @@ body {
 
 
 
-
-
-/*//////////////////////////////////////////////////////////////////
-[ RESTYLE TAG ]*/
-
 * {
   margin: 0px; 
   padding: 0px; 
@@ -560,6 +555,8 @@ iframe {
 
 
 
+
+
 </style>
 
 <br>
@@ -570,44 +567,50 @@ iframe {
          
        
 
-        <div class="col-sm-7 md-12  right-side right " style="color: red">
+        <div class="col-sm-8 md-12  right-side right " style="color: red">
                  <div style="right: px" >    <h3 style="color: white"> <strong style="color: red">REG</strong>ISTER</h3></div>
-                    <span class="input input--hoshi">
-      <input class="input__field input__field--hoshi" type="text" name="htno" />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-            <span class="input__label-content input__label-content--hoshi">Hall Ticket Number *</span>
-          </label>
-      </span>
-      <span class="input input--hoshi">
-      <input class="input__field input__field--hoshi" type="password" name="password" />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-            <span class="input__label-content input__label-content--hoshi" >Password *</span>
-          </label>
-      </span>
-      <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="text" name="fname"  />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-            <span class="input__label-content input__label-content--hoshi">Name *</span>
-          </label>
+                 
+     <br><br>
+      <div class="wrap-input100 validate-input" data-validate="HALLTICKET NO">
+            <span class="btn-show-pass">
+              <i class="zmdi zmdi-eye"></i>
+            </span>
+            <input class="input100" type="password" name="HALLTICKET">
+            <span class="focus-input100" data-placeholder="HALLTICKET NO*"></span>
+          </div>
+   
+   
+      <div class="wrap-input100 validate-input" data-validate="Enter password">
+            <span class="btn-show-pass">
+              <i class="zmdi zmdi-eye"></i>
+            </span>
+            <input class="input100" type="password" name="pass">
+            <span class="focus-input100" data-placeholder="PASSWORD*"></span>
+          </div>
+     <div class="wrap-input100 validate-input">
+            <input class="input100" type="text" name="Username">
+            <span class="focus-input100" data-placeholder="USERNAME*"></span>
+          </div>
+            <div class="wrap-input100 validate-input">
+            <input class="input100" type="number" name="phone number">
+            <span class="focus-input100" data-placeholder="MOBILE*"></span>
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+            <input class="input100" type="text" name="email">
+            <span class="focus-input100" data-placeholder="EMAIL*"></span>
+          </div>
+
         </span>
-        <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="number" name="mobile"/>
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="email">
-            <span class="input__label-content input__label-content--hoshi">Mobile *</span>
-          </label>
-        </span>
-    <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="email" name="email"  />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-            <span class="input__label-content input__label-content--hoshi">Email*</span>
-          </label>
-        </span>
-        <span class="input input--hoshi" >
+        <span class="input input--hoshi" myFont  >
           <label class="input__label input__label--hoshi input__label--hoshi-color-3">
-            <span class="input__label-content input__label-content--hoshi" >Branch </span>
+            <span class="input__label-content input__label-content--hoshi" >Branch * </span>
           </label><br>
-          <select class="input__field input__field--hoshi" type="text" name="branch" style="color: black" >
-            <option value="">--</option>
+
+          
+
+          <select class="input__field input__field--hoshi" type="text" name="branch" style="background-color: black" >
+            <option value="">--Select your Branch--</option>
       <option value="cse">CSE</option>
             <option value="it">IT</option>
             <option value="ece">ECE</option>
@@ -619,34 +622,26 @@ iframe {
         </span>
         <span class="input input--hoshi">
           <label class="input__label input__label--hoshi input__label--hoshi-color-3">
-            <span class="input__label-content input__label-content--hoshi">Year</span>
+            <span class="input__label-content input__label-content--hoshi">Year *</span>
           </label><br>
-          <select class="input__field input__field--hoshi" name="year" type="text" style="color: black" >
-            <option value="">--</option>
+          <select class="input__field input__field--hoshi" name="year" type="text" style="background-color: black" >
+            <option value="">--Select your Year--</option>
             <option value="I B.tech" >I B.Tech</option>
             <option value="II B.tech">II B.Tech</option>
             <option value="III B.tech">III B.Tech</option>
             <option value="IV B.tech">IV B.Tech</option>
           </select>
         </span>
-        <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="number" name="aggregate" id="name" />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-            <span class="input__label-content input__label-content--hoshi">Aggregate </span>
-          </label>
-        </span>
-    <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="text" name="about"  />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-            <span class="input__label-content input__label-content--hoshi">About</span>
-          </label>
-        </span>
-    <!--span class="input input--hoshi">
-          <textarea class="input__field input__field--hoshi" type="text" name="about"></textarea>
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-            <span class="input__label-content input__label-content--hoshi">About</span -->
-          </label>
-        </span>
+        <div class="wrap-input100 validate-input">
+            <input class="input100" type="number" name="aggregate">
+            <span class="focus-input100" data-placeholder="AGGREGATE*"></span>
+          </div>
+
+              <div class="wrap-input100 validate-input">
+            <input class="input100" type="text" name="about">
+            <span class="focus-input100" data-placeholder="ABOUT"></span>
+          </div>
+    
     <div class="row">
     <div class="col-md-6">
       
